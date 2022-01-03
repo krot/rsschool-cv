@@ -110,14 +110,14 @@ main {
     font-weight: bold;
 }
 
-.cv-section article {
+.cv-section div {
     padding-top: 1em;
     padding-bottom: 1em;
     padding-left: 20px;
     padding-right: 20px;
 }
 
-.cv-section article ul {
+.cv-section div ul {
     padding-left: 20px;
 }
 
