@@ -6,6 +6,186 @@
     <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-    <h1>Draft CV (html)</h1>
+<div class="wrapper">
+    <div class="header-container">
+        <header class="header">
+            <figure class="logo">
+                <a class="nav-link" href="/">
+                    <img alt="Avatar" class="avatar"
+                         src="https://avatars.githubusercontent.com/u/2299397?v=4">
+                </a>
+            </figure>
+            <nav class="nav">
+                <ul class="navbar">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacts">Contacts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#summary">Summary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#code">Code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+    <main class="main">
+        <section class="cv-section about">
+            <h1 id="about">Rustem Enikeev</h1>
+            <p>Middle Fullstack Dev</p>
+        </section>
+
+        <section class="cv-section contacts">
+            <h2 class="section-header" id="contacts">Contacts</h2>
+            <article>
+                <ul>
+                    <li><p>E-mail: main@csagent.ru (preferred)</p></li>
+                    <li><p>Telegram: @krotx32</p></li>
+                    <li><p><a href="https://www.linkedin.com/in/rustem-enikeev/">LinkedIn Profile</a></p></li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="cv-section summary">
+            <h2 class="section-header" id="summary">Summary</h2>
+            <article>
+                <p>Middle Fullstack Web Developer, with more than 6 years of production experience and more 15 years of
+                    common computer science experience.</p>
+                <p>I worked on different projects and systems, include creating new, refactor, improving and fix current
+                    modern and legacy systems.</p>
+                <p>I do everyday learning and improving for a new as on work, as on my free time.</p>
+                <p>Now I want to extend my experience to mobile development (for example to be able to make
+                    Cordova/Capacitor native extensions on Android/iOS).</p>
+                <p>Also I’m very like to know Rust lang (It’s named as me :-) ) but in next steps.</p>
+                <p>hobbys: IT, drawing, fitness</p>
+            </article>
+        </section>
+
+        <section class="cv-section skills">
+            <h2 class="section-header" id="skills">Skills</h2>
+            <article>
+                <ul>
+                    <li>
+                        <p>Frontend - JavaScript, TypeScript, Redux, TSX, Ionic Framework (Angular2+), Cordova,
+                            StencilJS, Apollo, Axios, CSS3, HTML5.</p>
+                    </li>
+                    <li>
+                        <p>Backend - PHP (Yii2), GraphQL, Rest API, MySQL, Redis, Sass(Less)</p>
+                    </li>
+                    <li>
+                        <p>Env - AWS API and services (Amplify, CloudSearch, Translate API etc), Google API and services
+                            (tagmanager, analytics, maps, etc), AuthorizeNet API</p>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="cv-section code">
+            <h2 class="section-header" id="code">Code Example</h2>
+            <article>
+                <pre>
+@Injectable({
+  providedIn: "root"
+})
+export class AuthService {
+
+  public isAuth: boolean = false;
+
+  public isAuth$: Observable<boolean>;
+  public isAuthSubject$: Subject<boolean>;
+
+  constructor(
+    private userService: UserService,
+    private apiService: ApiService,
+  ) {
+     this.isAuthSubject$ = new Subject<boolean>();
+     this.isAuth$ = this.isAuthSubject$.asObservable();
+     this.isAuthSubject$.next(this.isAuth);
+  }
+
+  isAuthenticated(): Observable<boolean> {
+    return this.isAuth$;
+  }
+
+  login(email, password): Observable<IUserAuth> {
+    return from(
+      this.apiService.getUserTokenByCredentials(email, password).pipe(
+       tap((data: any) => {
+       this.isAuth = true;
+       this.isAuthSubject$.next(this.isAuth);
+       return data;
+     }),
+     catchError( err => {
+         return throwError(err);
+     })));
+  }
+
+  logout(): Observable<boolean> {
+      this.isAuth = false;
+      this.isAuthSubject$.next(this.isAuth);
+      return this.isAuth$;
+  }
+}
+                </pre>
+            </article>
+        </section>
+
+        <section class="cv-section experience">
+            <h2 class="section-header" id="experience">Experience</h2>
+            <article>
+                <p>Strong skills on building complex websites and progressive web applications(PWA) from blank with fast
+                    and responsible design.</p>
+
+                <p>Creating, improve and publish cross-platform mobile applications for Android and iOS with using Ionic
+                    Framework(Angular2+) with publishing to GooglePlay and AppStore .</p>
+
+                <p>Native understanding possible problems and system design issues on processed systems. Ability to help
+                    to solve problems and train colleagues.</p>
+
+                <p>Expertise in find and fix issues and bugs in systems so fast and so patience and accuracy. Experience
+                    for explore and use third-party and self-designed APIs</p>
+                </p>
+            </article>
+        </section>
+
+        <section class="cv-section education">
+            <h2 class="section-header" id="education">Education</h2>
+            <article>
+                <p>I’m got a Master CS degree in USATU, Ufa in 2000 but as I said, I’m learn by myself and with api docs</p>
+            </article>
+        </section>
+
+        <section class="cv-section english">
+            <h2 class="section-header" id="english">English</h2>
+            <article>
+                <p>I’m got a Master CS degree in USATU, Ufa in 2000 but as I said, I’m learn by myself and with api docs</p>
+            </article>
+        </section>
+
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-item">
+                <h5>Rustem Enikeev CV, 2022</h5>
+            </div>
+            <div class="footer-item">
+                <a href="https://krot.github.com" target="_blank">Github</a>
+            </div>
+            <div class="footer-item">
+                <a href="https://rs.school/js/" target="_blank"><img src="https://rs.school/images/rs_school_js.svg" alt="RSSchool"></a>
+            </div>
+        </div>
+    </footer>
+</div>
 </body>
 </html>
