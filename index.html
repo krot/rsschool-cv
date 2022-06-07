@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Rustem Enikeev CV (html)</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="wrapper">
@@ -120,12 +120,12 @@ export class AuthService {
   login(email, password): Observable {
     return from(
       this.apiService.getUserTokenByCredentials(email, password).pipe(
-       tap((data: any) => {
+       tap((data: any) =&gt; {
        this.isAuth = true;
        this.isAuthSubject$.next(this.isAuth);
        return data;
      }),
-     catchError( err => {
+     catchError( err =&gt; {
          return throwError(err);
      })));
   }
@@ -167,7 +167,7 @@ export class AuthService {
         <section class="cv-section english">
             <h2 class="section-header" id="english">English</h2>
             <div>
-                <p>I’m got a Master CS degree in USATU, Ufa in 2000 but as I said, I’m learn by myself and with api docs</p>
+                <p>Intermediate, can read, write and discuss with foreign colleagues, mid-level speaking, after some hours of practice</p>
             </div>
         </section>
 
